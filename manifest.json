@@ -1,0 +1,10 @@
+{
+    "name": "NetTest",
+    "vendor": "AIKON-VXP",
+    "app_name_multilang": ["NetTest", "NetTest", "NetTest"],
+    "description": "AIKON VXP port - chunk 1 plain HTTP connectivity test",
+    "version": 1,
+    "required_ram": 512,
+    "imsi": "000000000000000",
+    "run_in_background": 0
+}
