@@ -1,0 +1,25 @@
+# Fly.io config for the AIKON-VXP test server.
+# This app deliberately serves PLAIN HTTP (not HTTPS) on a dedicated
+# port, because a Nokia 210 / Series 30+ phone cannot do modern TLS at
+# all. Fly's [[services]] block below opens a raw TCP port straight
+# through to the container - no automatic HTTPS wrapping - which is
+# exactly what a dumb-phone client needs.
+app = "CHANGE-ME-aikon-vxp"
+primary_region = "sin"   # pick the region closest to Bangladesh, e.g. sin (Singapore)
+
+[build]
+
+[env]
+  PORT = "8080"
+
+[[services]]
+  internal_port = 8080
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 80
+    handlers = []   # empty = raw TCP passthrough, NOT "tls"/"http" (no auto-HTTPS)
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "2s"
