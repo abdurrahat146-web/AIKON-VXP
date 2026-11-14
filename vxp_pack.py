@@ -80,7 +80,8 @@ def main():
     str_tag(0x04, cfg["name"])
     int_tag(0x05, cfg["version"])
     int_tag(0x0f, cfg["required_ram"])
-    ascii_tag(0x12, cfg["imsi"])
+    if cfg.get("imsi"):
+        ascii_tag(0x12, cfg["imsi"])
     str_tag(0x17, cfg["description"])
     int_tag(0x18, cfg["run_in_background"])
     str_array_tag(0x19, cfg["app_name_multilang"])

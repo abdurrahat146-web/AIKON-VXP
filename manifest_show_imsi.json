@@ -1,0 +1,10 @@
+{
+    "name": "ShowIMSI",
+    "vendor": "AIKON-VXP",
+    "app_name_multilang": ["ShowIMSI", "ShowIMSI", "ShowIMSI"],
+    "description": "Shows the SIM IMSI on screen",
+    "version": 1,
+    "required_ram": 512,
+    "imsi": "",
+    "run_in_background": 0
+}
