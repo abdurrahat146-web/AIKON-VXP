@@ -29,7 +29,7 @@ build/c_fix.o: $(MRE_SDK)/../src/c_fix.c | build
 	clang $(CLANGFLAGS) -Wno-return-type -c $< -o $@
 
 build/$(APP).axf: build/gccmain.o build/c_fix.o build/net_test.o
-	clang -target arm-none-eabi -nostdlib -fuse-ld=lld -Wl,--gc-sections \
+	clang -target arm-none-eabi -nostdlib -fuse-ld=lld -Wl,-pie,--no-dynamic-linker,-z,notext,--gc-sections \
 		-T $(MRE_SDK)/scat.ld -o $@ $^ $(MRE_SDK)/lib/*.a
 
 build/$(APP)_res.axf: build/$(APP).axf
